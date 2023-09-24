@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Animations</title>
+    <style>
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background-color: #007bff; /* Initial background color */
+  z-index: -1;
+  transform: scaleX(0) scaleY(0); /* Start with no fill */
+  transform-origin: 0 0; /* Start from the top-left corner */
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out; /* Transition width and height as well */
+}
+
+.btn:hover::before {
+  width: 100%; /* Fill horizontally on hover */
+  height: 100%; /* Fill vertically on hover */
+  transform: scaleX(1) scaleY(1); /* Expand to fill the button */
+  background-color: #ff5733; /* New background color on hover */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="middle">
+        <a href="" class="btn">Hover me</a>
+    </div>
+    
+</body>
+</html>
